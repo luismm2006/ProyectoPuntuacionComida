@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ef">
+  <title>Diario de Comidas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Diario de Comidas, inicio">
+        <span class="brand-mark" aria-hidden="true">DC</span>
+        <span>Diario de Comidas</span>
+      </a>
+      <span class="local-note">Un pequeño reto, cada día</span>
+    </header>
+
+    <main id="inicio">
+      <section class="welcome" aria-labelledby="welcome-title">
+        <div class="welcome-copy">
+          <p class="eyebrow">La mesa está servida</p>
+          <h1 id="welcome-title">¿Qué tal se ha comido <span>hoy?</span></h1>
+          <p class="welcome-date" id="today-label"></p>
+        </div>
+        <div class="streak-panel" aria-live="polite">
+          <span class="streak-icon" aria-hidden="true">🔥</span>
+          <div>
+            <p class="streak-caption">Racha actual</p>
+            <p class="streak-number"><span id="streak-count">0</span> <span id="streak-unit">días</span></p>
+            <p class="streak-detail" id="streak-detail">Completa los 24 votos para empezar</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="today-section section-block" aria-labelledby="today-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">La ronda de hoy</p>
+            <h2 id="today-title">Puntuaciones de hoy</h2>
+          </div>
+          <span class="completion-badge" id="today-completion"></span>
+        </div>
+        <div class="today-layout">
+          <div class="people-grid" id="today-people"></div>
+          <aside class="winner-panel" id="today-winner" aria-live="polite"></aside>
+        </div>
+      </section>
+
+      <section class="section-block entry-section" aria-labelledby="entry-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Añade una valoración</p>
+            <h2 id="entry-title">Registrar comida</h2>
+          </div>
+          <span class="form-count" id="entry-count">0 de 24 votos hoy</span>
+        </div>
+        <form id="meal-form" class="meal-form">
+          <input id="record-id" type="hidden">
+          <label>
+            <span>Fecha</span>
+            <input id="meal-date" type="date" required>
+          </label>
+          <label>
+            <span>Quién vota</span>
+            <select id="voter" required>
+              <option value="" disabled selected>Elige quién eres</option>
+              <option>Luis</option>
+              <option>Jose</option>
+              <option>Cristina</option>
+              <option>Arianna</option>
+            </select>
+          </label>
+          <label>
+            <span>Persona a quien puntúas</span>
+            <select id="person" required>
+              <option value="" disabled selected>Elige a quién puntuar</option>
+              <option>Luis</option>
+              <option>Jose</option>
+              <option>Cristina</option>
+              <option>Arianna</option>
+            </select>
+          </label>
+          <label>
+            <span>Comida</span>
+            <select id="meal-number" required>
+              <option value="" disabled selected>Elige una comida</option>
+              <option value="1">Comida 1</option>
+              <option value="2">Comida 2</option>
+            </select>
+          </label>
+          <label class="food-field">
+            <span>Comida que estás puntuando</span>
+            <input id="food-name" type="text" maxlength="80" placeholder="Ej. Lasaña casera" required>
+          </label>
+          <label>
+            <span>Valoración <small>(1–10)</small></span>
+            <input id="score" type="number" min="1" max="10" step="1" inputmode="numeric" placeholder="8" required>
+          </label>
+          <div class="form-actions">
+            <button class="button button-primary" id="save-button" type="submit">Guardar voto</button>
+            <button class="button button-quiet hidden" id="cancel-edit" type="button">Cancelar edición</button>
+          </div>
+        </form>
+        <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="section-block ranking-section" aria-labelledby="ranking-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">La temporada</p>
+            <h2 id="ranking-title">Clasificación</h2>
+          </div>
+          <span class="muted-note">Solo cuentan los días completos de cada persona</span>
+        </div>
+        <div class="ranking-list" id="ranking-list"></div>
+      </section>
+
+      <section class="section-block history-section" aria-labelledby="history-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Vuelta a la mesa</p>
+            <h2 id="history-title">Historial</h2>
+          </div>
+        </div>
+        <div class="history-list" id="history-list"></div>
+      </section>
+
+      <footer class="page-footer">
+        <span>Hecho para compartir la mesa.</span>
+        <button class="text-button" id="clear-data" type="button">Limpiar todos los datos</button>
+      </footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
