@@ -73,6 +73,11 @@ h2 { margin: 0; font-size: 26px; line-height: 1.15; }
 .vote-count { color: var(--muted); font-size: 9px; white-space: nowrap; }
 .meal-votes { display: grid; gap: 5px; }
 .meal-vote { padding-top: 5px; border-top: 1px solid rgba(49, 95, 74, .1); }
+.meal-photo, .history-meal-photo { display: block; width: 100%; aspect-ratio: 4 / 3; border-radius: 4px; object-fit: cover; background: #ecece5; }
+.photo-controls { display: flex; align-items: center; }
+.photo-button { padding: 6px 8px; border: 1px solid #dfe3da; border-radius: 4px; color: var(--green); background: white; font-size: 10px; font-weight: 700; }
+.photo-button:hover, .photo-button:focus-visible { border-color: var(--green); background: var(--green-soft); }
+.photo-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
 .meal-slot-info { min-width: 0; overflow: hidden; color: var(--muted); text-overflow: ellipsis; white-space: nowrap; }
 .meal-slot-info strong { color: var(--green); }
 .slot-actions { display: inline-flex; flex: 0 0 auto; gap: 4px; }

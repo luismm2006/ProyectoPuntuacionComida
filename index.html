@@ -95,8 +95,8 @@
             <input id="food-name" type="text" maxlength="80" placeholder="Ej. Lasaña casera" required>
           </label>
           <label>
-            <span>Valoración <small>(1–10)</small></span>
-            <input id="score" type="number" min="1" max="10" step="1" inputmode="numeric" placeholder="8" required>
+            <span>Valoración <small>(0–10, admite decimales)</small></span>
+            <input id="score" type="number" min="0" max="10" step="any" inputmode="decimal" placeholder="8.5" required>
           </label>
           <div class="form-actions">
             <button class="button button-primary" id="save-button" type="submit">Guardar voto</button>
